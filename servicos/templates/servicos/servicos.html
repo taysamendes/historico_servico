@@ -1,23 +1,51 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Sistema de Histórico de Serviços</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/servicos.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
 </head>
 <body>
-    <div>
-        <h1><a href="/">Sistema de Histórico de Serviços</a></h1>
-    </div>
+<div class="page-header">
+    <h1><a href="/">Sistema de Histórico de Serviços</a></h1>
+</div>
 
-    {% for s in servicos %}
-    <div>
-        <h1><a href="">{{s.tipo}}</a></h1>
-        <p>realizado em:{{s.dataServico}}</p>
-        <p>{{s.descricao|linebreaksbr}}</p>
-        <p><strong>Local: </strong>{{s.local}}</p>
-        <p><strong>Responsável: </strong>{{s.responsavel}}</p>
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+
+            <table class="table table-hover">
+                <thr>
+                    <tr>
+                        <th>Tipo do procedimento</th>
+                        <th>Data de realização</th>
+                        <th>Descrição</th>
+                        <th>Local</th>
+                        <th>Responsavel</th>
+                    </tr>
+                </thr>
+
+                {% for s in servicos %}
+
+                <tbody>
+                <tr>
+                    <td>{{s.tipo}}</td>
+                    <td>{{s.dataServico}}</td>
+                    <td>{{s.descricao|linebreaksbr}}</td>
+                    <td>{{s.local}}</td>
+                    <td>{{s.responsavel}}</td>
+                </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
     </div>
-    {% endfor %}
+</div>
 
 </body>
 </html>
