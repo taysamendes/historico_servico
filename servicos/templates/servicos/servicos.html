@@ -6,27 +6,18 @@
 </head>
 <body>
     <div>
-        <h1><a href="/">SISTEMA DE HISTÓRICO DE SERVIÇOS</a></h1>
+        <h1><a href="/">Sistema de Histórico de Serviços</a></h1>
     </div>
 
+    {% for s in servicos %}
     <div>
-        <h2>Troca de Memória</h2>
-        <p>Data:19/10/2018</p>
-
-        <p>enean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-            Donec id elit non mi porta gravida at eget metus.
-            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-            ut fermentum massa justo sit amet risus.</p>
+        <h1><a href="">{{s.tipo}}</a></h1>
+        <p>realizado em:{{s.dataServico}}</p>
+        <p>{{s.descricao|linebreaksbr}}</p>
+        <p><strong>Local: </strong>{{s.local}}</p>
+        <p><strong>Responsável: </strong>{{s.responsavel}}</p>
     </div>
-    <div>
-        <h2>Software</h2>
-        <p>Data:19/10/2018</p>
-
-        <p>enean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-            Donec id elit non mi porta gravida at eget metus.
-            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-            ut fermentum massa justo sit amet risus.</p>
-    </div>
+    {% endfor %}
 
 </body>
 </html>
